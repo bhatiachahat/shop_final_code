@@ -5,6 +5,7 @@ const config = {
     ERROR:'E',
     NOT_FOUND:'NF',
     EMPTY:'EM',
+    PAYMENTDONE:'resolved',
     ADMIN:'admin',
     pendingOrders:['placed','received','dispatched','shipped'],
     orderDelivered:["delivered"],

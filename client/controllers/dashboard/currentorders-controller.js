@@ -1,6 +1,7 @@
 dashboardapp.controller("currentorder-controller",function($scope,currentorderfactory,$rootScope,ngDialog){
     console.log("you are inside current orders controller");
-    $scope.clickToStatus=function(){
+    $scope.clickToStatus=function(u){
+      $rootScope.particularOrderid=u;
       ngDialog.open({ template: 'StatusTemplate.html',
       controller:'ChangeStatusTemplate-controller',
    

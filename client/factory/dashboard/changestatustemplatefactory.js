@@ -2,6 +2,7 @@ dashboardapp.factory("changestatustemplatefactory",function($q,$http,CHANGESTATU
     return{
         
         changeStatus(statusObject){
+            console.log("inaide changestatustemplatefactory ",statusObject)
             console.log("Inside   find admin in factory");
             let defer=$q.defer();
             console.log("calling login url");

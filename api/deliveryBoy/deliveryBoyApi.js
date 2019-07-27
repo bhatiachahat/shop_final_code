@@ -71,20 +71,41 @@ deliveryBoyApi.post('/changestatus',(req,res)=> {
   console.log(req.body);
   let status=req.body.status;
   let orderId=req.body.orderId;
- orderSchema.findOneAndUpdate({orderId:orderId},{orderStatus:status},{new:true},(err,doc)=>{
-   if(err){
-    console.log("error is",err);
-
-   }
-   else{
-     if(doc){
-console.log("doc is",doc);
-     }else{
-console.log("doc hi nhi mila");
-     }
-
-   }
- })
+  console.log("status",status,"orderId__",orderId);
+  if(status==config.orderDelivered) {
+    orderSchema.findOneAndUpdate({orderId:orderId},{orderStatus:status,paymentStatus:config.PAYMENTDONE},{new:true},(err,doc)=>{
+      if(err){
+        console.log("error is",err);
+    
+       }
+       else{
+         if(doc){
+    console.log("doc is",doc);
+    res.status(200).json({status:config.SUCCESS,message:"Status changed successfully "});
+         }else{
+    console.log("doc hi nhi mila");
+         }
+    
+       }
+    })
+  }
+ else{
+  orderSchema.findOneAndUpdate({orderId:orderId},{orderStatus:status},{new:true},(err,doc)=>{
+    if(err){
+     console.log("error is",err);
+ 
+    }
+    else{
+      if(doc){
+ console.log("doc is",doc);
+ res.status(200).json({status:config.SUCCESS,message:"Status changed successfully "});
+      }else{
+ console.log("doc hi nhi mila");
+      }
+ 
+    }
+  })
+ }
   
 });
 

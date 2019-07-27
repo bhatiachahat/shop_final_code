@@ -2,7 +2,7 @@ dashboardapp.controller("pendingorders-controller",function(pendingorderfactory,
     console.log("you are inside pending orders controller");
     $scope.clickToStatus=function(u){
       $rootScope.particularOrderid=u;
-      ngDialog.open({ template: 'StatusTemplate.html',
+      ngDialog.open({ template: 'pendingStatusTemplate.html',
       controller:'ChangeStatusTemplate-controller',
    
    scope: $scope
